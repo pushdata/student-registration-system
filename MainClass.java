@@ -32,15 +32,8 @@ public class MainClass {
 			  	boolean continue_flag = true;
 				while (continue_flag)
 				{
-				try {
-					Class.forName("oracle.jdbc.driver.OracleDriver");
-					System.out.println("Driver loaded!");
-				} catch (ClassNotFoundException e) {
-					throw new IllegalStateException("Cannot find the driver in the classpath!", e);
-				}
-				Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "test");
-				
-			
+				Class.forName("oracle.jdbc.driver.OracleDriver");
+				Connection conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE", "system", "pass1234");
 				System.out.println("Connected to Student Database");
 				//Menu
 				System.out.println("\n\n__________________________________________________________");
@@ -78,13 +71,10 @@ public class MainClass {
 				switch (number)
 				{
 					case 1:
-					 /* cs = conn.prepareCall("begin pack_display.show_students(?); end;");
+					 cs = conn.prepareCall("begin pack_display.show_students(?); end;");
 					 cs.registerOutParameter(1, OracleTypes.CURSOR);
 					 cs.execute();
-				     rs = (ResultSet)cs.getObject(1); */
-					 String selectTableSQL = "SELECT *from students";
-					 stmt = conn.createStatement();
-					 rs = stmt.executeQuery(selectTableSQL);
+				     rs = (ResultSet)cs.getObject(1);
 				     System.out.println("sid"+"\t"+"firstname"+"\t"+"lastname" +  "\tstatus"  + "\t\tgpa" + "\t\temail");
 				     System.out.println("================================================================================");
 				        // print the results

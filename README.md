@@ -1,24 +1,31 @@
-Requirements :
+__Requirements :__
 
-JDK
-Oracle 11g database
-SQL Developer
-ojdbc6.jar
+--> Java
 
-Commands : 
+--> Oracle 11g database
 
-$sqlplus
-	SQL> start proj2data2016.sql
-	SQL> start procedure.sql
+--> SQL Developer
 
+--> ojdbc6.jar
 
-Program Compilation:
+__Commands :__
+```
+	   $sqlplus
+	   SQL> start proj2data2016.sql
+	   SQL> start procedure.sql
+```
+__Program Compilation:__
 	
+```
 javac -classpath ".;ojdbc6.jar" MainClass.java
+```
 
-Program Execution:
+__Program Execution:__
+
+```
 java -classpath ".;ojdbc6.jar" MainClass
-	
+
+```	
 
 	
 
